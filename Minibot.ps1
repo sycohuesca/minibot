@@ -1,4 +1,4 @@
-function minibot {
+function Minibot {
 
     [CmdletBinding(SupportsShouldProcess = $True, ConfirmImpact = 'Medium')]
     Param (
