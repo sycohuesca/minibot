@@ -18,4 +18,4 @@ function Invoke-CmdElevation {
  echo "Eliminada clave de registro"
         
 }
-Invoke-CmdElevation
+
